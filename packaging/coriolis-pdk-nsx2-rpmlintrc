@@ -1,0 +1,15 @@
+
+addFilter(".*gf180mcu-pdk.* noarch-python-in-64bit-path")
+addFilter(".*gf180mcu-pdk.* non-executable-script")
+addFilter(".*gf180mcu-pdk.* python-bytecode-inconsistent-mtime")
+addFilter(".*gf180mcu-pdk.* script-without-shebang")
+addFilter(".*gf180mcu-pdk.* env-script-interpreter")
+addFilter(".*gf180mcu-pdk.* files-duplicated-waste")
+addFilter(".*gf180mcu-pdk.* suse-filelist-forbidden-noarch")
+addFilter(".*gf180mcu-pdk.* filelist-forbidden-noarch")
+addFilter(".*gf180mcu-pdk.* files-duplicate")
+addFilter(".*gf180mcu-pdk.* version-control-internal-file")
+
+setBadness("suse-filelist-forbidden-noarch", 0)
+setBadness("filelist-forbidden-noarch", 0)
+setBadness("version-control-internal-file", 0)

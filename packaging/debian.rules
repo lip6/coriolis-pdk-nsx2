@@ -1,0 +1,47 @@
+#!/usr/bin/make -f
+export PYBUILD_NAME    = coriolis-pdk-nsx2
+export PYBUILD_VERBOSE = 1
+export DH_VERBOSE      = 1
+       DESTDIR         = $(CURDIR)/debian/$(PYBUILD_NAME)
+
+#%:
+#	cat /etc/os-release
+#	. /etc/os-release
+#	dh $@ --with python3 --buildsystem=pybuild
+
+%:
+	dh $@
+
+
+binary:
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_prep
+	tar zxf /usr/src/packages/SOURCES/venv-al9-2.5.5.tar.gz
+	cp /usr/src/packages/SOURCES/patchvenv.sh .
+	chmod u+x ./patchvenv.sh
+	./patchvenv.sh --use-system-packages --remove-venv-watchfiles --remove-pip
+	. .venv/bin/activate; \
+	mkdir build_wheel; \
+	python3 -m pip wheel --no-deps --no-cache-dir \
+	  --disable-pip-version-check --progress-bar off --verbose \
+	  --no-build-isolation --no-clean \
+	  --wheel-dir=./build_wheel .; \
+	python3 -m pip install --root $(DESTDIR) --prefix /usr --no-deps \
+	  --disable-pip-version-check --progress-bar off --verbose \
+	  --ignore-installed --no-warn-script-location \
+	  --no-index --no-cache-dir ./build_wheel/`ls ./build_wheel`
+	mkdir -p $(DESTDIR)/usr/lib/python3/dist-packages
+	mv $(DESTDIR)/usr/lib/python3*/site-packages/* $(DESTDIR)/usr/lib/python3/dist-packages
+	dh_installdeb
+	dh_install
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean

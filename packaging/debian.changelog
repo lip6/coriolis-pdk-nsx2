@@ -1,0 +1,7 @@
+coriolis-pdk-nsx2 (2025.12.31) unstable; urgency=low
+
+  * Initial release. Closes: #00001
+  * Updated debian packages files
+  * Update control file.
+  
+  -- Jean-Paul Chaput <Jean-Paul.Chaput@lip6.fr> Mon Jul 28 11:11:47 AM CEST 2025
