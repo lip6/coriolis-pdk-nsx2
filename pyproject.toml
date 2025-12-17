@@ -5,10 +5,10 @@ requires = ["meson-python"]
 
 [project]
 name = "coriolis-pdk-nsx2"
-version = "2025.11.20"
+version = "2025.12.31"
 authors = [ { name="Ali Oudrhiri"  , email="ali.oudrhiri@lip6.fr"}
           , { name="Naohiko shimizu"  , email="naohiko.shimizu@lip6.fr" }
-	  , { name="Jean-Paul Chaput", email="Jean-Paul.Chaput@lip6.fr"}
+          , { name="Jean-Paul Chaput", email="Jean-Paul.Chaput@lip6.fr"}
           ]
 description = "PDK for nsx2 library"
 readme = "README.rst"
@@ -19,4 +19,4 @@ classifiers = [ "Development Status :: 3 - Alpha"
               ]
 
 [project.urls]
-Homepage = "https://gitlab.com/Chips4Makers"
+Homepage = "https://coriolis.lip6.fr/"
