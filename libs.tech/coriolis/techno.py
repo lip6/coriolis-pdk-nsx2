@@ -393,9 +393,9 @@ def _loadDevices ():
     #         )
 
 
-def _setup_techno ( coriolisTechDir ):
-    ShellEnv.GRAAL_TECHNO_NAME = (coriolisTechDir / 'nsxlib2_techno'/ 'symbolic.graal' ).as_posix()
-    ShellEnv.DREAL_TECHNO_NAME = (coriolisTechDir / 'nsxlib2_techno' / 'symbolic.dreal' ).as_posix()
+def _setup_techno ( packageDir ):
+    ShellEnv.GRAAL_TECHNO_NAME = (packageDir / 'symbolic.graal' ).as_posix()
+    ShellEnv.DREAL_TECHNO_NAME = (packageDir / 'symbolic.dreal' ).as_posix()
 
     db = DataBase.getDB()
     CRL.System.get()
@@ -632,8 +632,8 @@ def _setup_display ():
     Viewer.Graphics.setStyle( 'Alliance.Classic [black]' )
 
 
-def setup ( coriolisTechDir ):
-    _setup_techno( coriolisTechDir )
+def setup ( packageDir ):
+    _setup_techno( packageDir )
     _setup_display()
     try:
         from .techno_symb import setup as setupSymbolic

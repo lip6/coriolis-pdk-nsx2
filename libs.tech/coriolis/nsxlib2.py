@@ -191,12 +191,12 @@ def _routing ():
         cfg.spares.maxSinks = 31
 
 
-def _loadNsxlib2 ( cellsTop ):
+def _loadNsxlib2 ( cellsDir ):
     """
     Setup for NSXLIB2 Alliance library. It is an symbolic library
     from which cells are loaded on demand, so we only setup pathes.
 
-    :param cellsTop: The top directory containing the cells views.
+    :param cellsDir: The top directory containing the cells views.
     """
     af  = AllianceFramework.get()
     env = af.getEnvironment()
@@ -209,9 +209,9 @@ def _loadNsxlib2 ( cellsTop ):
     env.setPad     ( '.*_mpx$'          )
     env.setRegister( 'sff.*' )
     env.setWORKING_LIBRARY( '.' )
-    env.addSYSTEM_LIBRARY ( library=(cellsTop / 'nsxlib2_vbe_and_ap').as_posix(), mode=Environment.Append )
+    env.addSYSTEM_LIBRARY ( library=cellsDir.as_posix(), mode=Environment.Append )
 
 
-def setup ( cellsTop ):
+def setup ( cellsDir ):
     _routing()
-    _loadNsxlib2( cellsTop )
+    _loadNsxlib2( cellsDir )
