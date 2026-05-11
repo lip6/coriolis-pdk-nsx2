@@ -11,6 +11,7 @@ from   coriolis.designflow.lvx      import Lvx
 from   coriolis.designflow.x2y      import x2y
 from   coriolis.designflow.iverilog import Iverilog
 from   coriolis.helpers.io          import ErrorMessage
+from   coriolis.technos.common.dft  import DftStdCells
 
 __all__ = [ 'setup', 'setup_techno' ]
 
@@ -112,3 +113,58 @@ def setup_techno ( techno ):
         TasYagle.OSDIdll      = ngspiceTech / 'psp103_nqs.osdi'
 
     return techno
+
+
+def getDftStdCells():
+    dft = DftStdCells()
+
+    # -------- FF supported --------
+    dft.dff_names = [
+        "sff1_x4",
+        "sff1r_x4",
+    ]
+
+    # -------- Mapping FF → Scan FF --------
+    dft.ff_to_scanff = {
+    }
+
+    # -------- Fallback cells (used when no scan FF is available in the library) --------
+    dft.mux_name = "mx2_x2"
+    dft.buf_name = "buf_x2"
+
+    # -------- Functional FF pin mapping --------
+    dft.ff_pins = {
+        "d": "i",
+        "q": "q",
+    }
+
+    # -------- Scan control pins (used for both native and generated scan FFs) --------
+    dft.scan_pins = {
+        "si": "SI",
+        "se": "SE",
+    }
+
+    # -------- Mux pin mapping --------
+    dft.mux_pins = {
+        "i0": "i0",
+        "i1": "i1",
+        "sel": "cmd",
+        "out": "q",
+    }
+    dft.scan_pins = {
+        "d":  "i",  
+        "si": "i1",   # scan input
+        "se": "cmd",  # scan enable
+        "q":  "q",   
+    }
+    # -------- Buffer pin mapping --------
+    dft.buf_pins = {
+        "i": "i",
+        "z": "q",
+    }
+
+    # -------- Placement orientations --------
+    dft.mux_orientation = "ID"
+    dft.ff_orientation  = "ID"
+
+    return dft
