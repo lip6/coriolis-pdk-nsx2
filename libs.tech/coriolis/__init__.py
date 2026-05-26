@@ -109,6 +109,6 @@ def setup_techno ( techno ):
         TasYagle.VddSupply    = 5.0
     elif techno == "sg13g2":
         TasYagle.SpiceTrModel = [ 'mos_tt.lib' ]
-        TasYagle.OSDIdll      = ngspiceTech / 'psp103_nqs.osdi'
+        TasYagle.OSDIdlls     = [ ngspiceTech / 'psp103_nqs.osdi' ]
 
     return techno

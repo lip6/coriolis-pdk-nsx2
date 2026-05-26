@@ -53,6 +53,13 @@ BuildRequires:  python%{python3_pkgversion}-pip
 BuildRequires:  python%{python3_pkgversion}-wheel
 %endif
 
+# All Mageia
+%if 0%{?mageia}
+BuildRequires:  ninja
+BuildRequires:  pyproject-rpm-macros
+BuildRequires:	kernel-userspace-headers
+%endif
+
 %if 0%{?is_opensuse}
 BuildRequires:  meson
 BuildRequires:  %{python_module devel}
