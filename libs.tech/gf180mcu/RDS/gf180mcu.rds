@@ -465,21 +465,21 @@ end
 
 DRC_RULES
  
-layer RDS_NWELL   0.840 ;
-layer RDS_PWELL   0.840 ;
-layer RDS_NTIE    0.380 ;
-layer RDS_PTIE    0.380 ;
-layer RDS_NIMP    0.380 ;
-layer RDS_PIMP    0.380 ;
-layer RDS_ACTIV   0.420 ;
-layer RDS_CONT    0.170 ;
-layer RDS_POLY    0.150 ;
-layer RDS_ALU1    0.140 ;
-layer RDS_ALU2    0.140 ;
-layer RDS_ALU3    0.140 ;
-layer RDS_ALU4    0.300 ;
-layer RDS_ALU5    0.300 ;
-layer RDS_VIA1    0.140 ;
+layer RDS_NWELL   1.7   ;
+layer RDS_PWELL   0.6   ;
+layer RDS_NTIE    0.220 ;
+layer RDS_PTIE    0.220 ;
+layer RDS_NIMP    0.400 ;
+layer RDS_PIMP    0.400 ;
+layer RDS_ACTIV   0.220 ;
+layer RDS_CONT    0.220 ;
+layer RDS_POLY    0.180 ;
+layer RDS_ALU1    0.230 ;
+layer RDS_ALU2    0.280 ;
+layer RDS_ALU3    0.280 ;
+layer RDS_ALU4    0.280 ;
+layer RDS_ALU5    0.280 ;
+layer RDS_VIA1    0.260 ;
 layer RDS_USER0   0.005 ;
 layer RDS_USER1   0.005 ;
 layer RDS_USER2   0.005 ;
