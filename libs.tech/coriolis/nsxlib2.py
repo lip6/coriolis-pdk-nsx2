@@ -131,8 +131,10 @@ def _routing ():
        #cfg.etesian.diodeName = 'diode'
        #cfg.etesian.antennaInsertThreshold = 0.50
        #cfg.etesian.antennaMaxWL = u(250.0)
+        cfg.etesian.densificationMode = 'Old'
         cfg.etesian.feedNames = 'tie_x0,rowend_x0'
         cfg.etesian.defaultFeed = 'tie_x0'
+        cfg.etesian.tieName = 'tie_x0'
         cfg.etesian.cell.zero = 'zero_x0'
         cfg.etesian.cell.one = 'one_x0'
         cfg.etesian.effort = 2
